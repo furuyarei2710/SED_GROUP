@@ -6,35 +6,36 @@
 #define SED_GROUP_MEMBER_H
 #include <iostream>
 #include "string"
+#include "House.h"
 
 
 //username, full name, phone number
 class Member {
 private:
-    int memberID;
     string userName;
     string fullName;
     string phoneNum;
+    string password;
+
+
 
 public:
-    Member(string userName = "", string fullName = "", string phoneNum = "") {
-        this->memberID += 1;
+    Member() {};
+
+    Member(string userName = "", string fullName = "", string phoneNum = "", string password = "") {
         this->userName = userName;
         this->fullName = fullName;
         this->phoneNum = phoneNum;
+        this->password = password;
     }
 
-    Member() {};
 
-    int getMemberId() const {
-        return memberID;
+
+    void showInfo() {
+        cout << "Username: " << this->getUserName() << ", full name: " << this->getFullName() << "\n";
     }
 
-    void setMemberId(int memberId) {
-        memberID = memberId;
-    }
-
-    const string &getUserName() const {
+    [[nodiscard]] const string &getUserName() const {
         return userName;
     }
 
@@ -42,7 +43,7 @@ public:
         Member::userName = userName;
     }
 
-    const string &getFullName() const {
+    [[nodiscard]] const string &getFullName() const {
         return fullName;
     }
 
@@ -58,9 +59,15 @@ public:
         Member::phoneNum = phoneNum;
     }
 
+    const string &getPassword() const {
+        return password;
+    }
+
+    void setPassword(const string &password) {
+        Member::password = password;
+    }
 
     virtual ~Member() {
-
     }
 };
 

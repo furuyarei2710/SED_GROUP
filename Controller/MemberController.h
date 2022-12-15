@@ -10,20 +10,19 @@
 
 class MemberController {
 
-private:
-
-    vector<Member> memberVector{};
-
 public:
 
-    MemberController() {
 
+
+    MemberController() {
     }
 
-    static Member registerNewMember() {
+    void registerNewMember(vector<Member>& memberVect) {
+
         string userName;
         string fullName;
         string phoneNum;
+        string password;
 
         cout << "Enter username: ";
         getline(cin, userName);
@@ -31,19 +30,68 @@ public:
         getline(cin, fullName);
         cout << "Enter phone number: ";
         getline(cin, phoneNum);
+        cout << "Enter password: ";
+        getline(cin, password);
 
-        auto * member = new Member(userName, fullName, phoneNum);
-        return *member;
+        Member * member = new Member(userName, fullName, phoneNum, password);
+        memberVect.push_back(*member);
     }
 
+    void login(vector<Member>& memberVect) {
+        Member * member;
+        string username;
+        string password;
 
-    static void showInfo(const Member& member) {
-        cout << "Username: " << member.getUserName() << ", full name: " << member.getFullName();
+        cout << "Please enter your username and password to login \n";
+
+        int count = 0;
+        bool userNotFound = true;
+        bool loginSuccess = false;
+
+        while (userNotFound) {
+            cout << "Username: ";
+            getline(cin, username);
+            for (auto & i : memberVect) {
+                if (i.getUserName() == username) {
+                    userNotFound = false;
+                    member = &i;
+                }
+            }
+            if (userNotFound) {
+                cout << "This username does not exist \n";
+            }
+        }
+
+        while (count < 4) {
+            cout << "Password: ";
+            getline(cin, password);
+            if (member->getPassword() ==  password) {
+                loginSuccess = true;
+                break;
+            }
+            else {
+                cout << "Password does not match, please try again \n";
+                count += 1;
+            }
+        }
+
+        if (loginSuccess) {
+            cout << "Login successfully! \n";
+
+        } else {
+            cout << "You have failed 4 times, please try again later \n";
+            member = nullptr;
+        }
     }
 
-    static void login() {
+    void viewInfo() {
 
     }
+
+    virtual ~MemberController() {
+
+    }
+
 };
 
 

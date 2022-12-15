@@ -13,10 +13,14 @@ using std::vector;
 
 int main() {
 
+    vector<Member> memberVector;
+
     MemberController *memberController;
-    MemberController::showInfo(memberController->registerNewMember());
+//    Member * member = new Member("khoi", "khoi nguyen", "0123123", "khoi123");
+//    MemberController::
 
-
+    memberController->registerNewMember(memberVector);
+    memberController->login(memberVector);
 
     return 0;
 }
