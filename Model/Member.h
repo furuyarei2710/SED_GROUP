@@ -7,17 +7,18 @@
 #include <iostream>
 #include "string"
 #include "House.h"
+#include "Owner.h"
+#include "Occupier.h"
 
 
 //username, full name, phone number
-class Member {
+class Member : public Owner, public Occupier{
 private:
     string userName;
     string fullName;
     string phoneNum;
     string password;
-
-
+    int creditP = 500;
 
 public:
     Member() {};
@@ -51,7 +52,7 @@ public:
         Member::fullName = fullName;
     }
 
-    const string &getPhoneNum() const {
+    [[nodiscard]] const string &getPhoneNum() const {
         return phoneNum;
     }
 
@@ -59,12 +60,20 @@ public:
         Member::phoneNum = phoneNum;
     }
 
-    const string &getPassword() const {
+    [[nodiscard]] const string &getPassword() const {
         return password;
     }
 
     void setPassword(const string &password) {
         Member::password = password;
+    }
+
+    [[nodiscard]] int getCreditP() const {
+        return creditP;
+    }
+
+    void setCreditP(int creditP) {
+        Member::creditP = creditP;
     }
 
     virtual ~Member() {

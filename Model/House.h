@@ -8,29 +8,21 @@
 
 class House {
 private:
-    int houseID;
     string location;
     string description;
-    int creditP;
-    House * house;
+    bool available = false;
+    int pricePerDay;
+    double occupierRating;
 
 public:
-    House(string location = "", string description = "" ) {
-        this->houseID += 1;
+    House(string location = "", string description = "", int pricePerDay = 0, double occupierRating = 0.0 ) {
         this->location = location;
         this->description = description;
-        this->creditP = 500;
+        this->pricePerDay = pricePerDay;
+        this->occupierRating = occupierRating;
     }
 
     House() {};
-
-    int getHouseId() const {
-        return houseID;
-    }
-
-    void setHouseId(int houseId) {
-        houseID = houseId;
-    }
 
     const string &getLocation() const {
         return location;
@@ -47,15 +39,6 @@ public:
     void setDescription(const string &description) {
         House::description = description;
     }
-
-    int getCreditP() const {
-        return creditP;
-    }
-
-    void setCreditP(int creditP) {
-        House::creditP = creditP;
-    }
-
 
     virtual ~House() {
 

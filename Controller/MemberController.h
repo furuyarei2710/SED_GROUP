@@ -5,19 +5,17 @@
 #ifndef SED_GROUP_MEMBERCONTROLLER_H
 #define SED_GROUP_MEMBERCONTROLLER_H
 
-
+#include "../Model/Member.h"
 
 
 class MemberController {
 
 public:
 
-
-
     MemberController() {
     }
 
-    void registerNewMember(vector<Member>& memberVect) {
+    Member* registerNewMember(vector<Member>& memberVect) {
 
         string userName;
         string fullName;
@@ -33,11 +31,12 @@ public:
         cout << "Enter password: ";
         getline(cin, password);
 
-        Member * member = new Member(userName, fullName, phoneNum, password);
+        auto* member = new Member(userName, fullName, phoneNum, password);
         memberVect.push_back(*member);
+        return member;
     }
 
-    void login(vector<Member>& memberVect) {
+    Member* login(vector<Member>& memberVect) {
         Member * member;
         string username;
         string password;
@@ -77,15 +76,36 @@ public:
 
         if (loginSuccess) {
             cout << "Login successfully! \n";
+            return member;
 
         } else {
             cout << "You have failed 4 times, please try again later \n";
             member = nullptr;
+            return member;
         }
+
     }
 
-    void viewInfo() {
+    House* registerHouse(vector<House> &houseList, Member &member) {
 
+        string location;
+        string description;
+        cout << "Enter your house's location: ";
+        getline(cin, location);
+        if (member.getHouse()->getLocation() == location) {
+            cout << "You have already add this location \n";
+            return nullptr;
+        }
+
+        cout << "Enter description: ";
+        getline(cin, description);
+
+        auto *house = new House(location, description);
+        houseList.push_back(*house);
+        member.setHouse(house);
+        cout << "Registered house successfully \n";
+
+        return house;
     }
 
     virtual ~MemberController() {
