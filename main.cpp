@@ -9,22 +9,16 @@ using std::vector;
 
 #include "Model/SystemModel.h"
 #include "Model/SystemModel.cpp"
-//#include "Model/Owner.h"
-//#include "Model/House.h"
-#include "Controller/SystemController.h"
-#include "Controller/SystemController.cpp"
+#include "Model/GuestModel.cpp"
+
+
 
 int main() {
 
-    vector<Member> memberVector;
-//    Member *member;
-    MemberController *memberController;
-//    MemberView *memberview;
-//    Member * member = new Member("khoi", "khoi nguyen", "0123123", "khoi123");
-//    MemberController::
-
-    memberController->registerNewMember(memberVector);
-    Member* member = memberController->login(memberVector);
-//    memberview->showMemberInfo(*member);
-    return 0;
+    System * system = System::getInstance();
+    bool isLoggedIn = system->isUser();
+    bool isAdmin = system->isAdmin();
+    Guest::registerNewMember();
+    Guest::registerNewMember();
+    system->saveMember();
 }
