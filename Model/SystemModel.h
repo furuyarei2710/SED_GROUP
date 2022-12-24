@@ -125,6 +125,8 @@ public:
 
 class System {
 private:
+    int countMem = 1;
+
     static System * instancePointer;
     System();
 

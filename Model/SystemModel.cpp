@@ -219,19 +219,13 @@ bool System::isAdmin() const{
 
 string System::generateID() {
     string ID;
-    int count = std::stoi(memberVect.back().getId());
-    if (count < 10) {
-        ID  = "00" + std::to_string(count);
-        count += 1;
-        return ID;
-    } else {
-        ID = &"0" [ count];
-        count += 1;
-        return ID;
-    }
+    ID  = std::to_string(countMem);
+    countMem += 1;
+    return ID;
 }
 
 Member * System::addMemberToSys(Member member) {
+    int count = 1;
     for (auto & i : memberVect) {
         if (i.getUserName() == member.getUserName()) {
             sysLog("This username is already existed");
