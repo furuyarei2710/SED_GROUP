@@ -4,7 +4,7 @@
 
 #ifndef SED_GROUP_HOUSECONTROLLER_H
 #define SED_GROUP_HOUSECONTROLLER_H
-#include "../Model/House.h"
+//#include "../Model/House.h"
 
 
 class HouseController {

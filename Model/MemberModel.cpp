@@ -12,8 +12,6 @@ Member::~Member() {
 
 }
 
-
-
 //Getter
 const string &Member::getId() const {
     return id;

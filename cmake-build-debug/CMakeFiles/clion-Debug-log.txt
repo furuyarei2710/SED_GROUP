@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/Library/Developer/CommandLineTools/usr/bin/c++ -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" -S /Users/macbookpro/IdeaProjects/StoreManagementSystem/SED_GROUP -B /Users/macbookpro/IdeaProjects/StoreManagementSystem/SED_GROUP/cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/macbookpro/IdeaProjects/StoreManagementSystem/SED_GROUP/cmake-build-debug
