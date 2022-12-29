@@ -10,7 +10,7 @@ using std::vector;
 //#include "Model/SystemModel.cpp"
 #include "Controller/HomepageController.h"
 
-
+using namespace HomepageComponent;
 
 int main() {
 
@@ -18,9 +18,6 @@ int main() {
 //    bool isLoggedIn = system->isUser();
 //    bool isAdmin = system->isAdmin();
 //    Guest::registerNewMember();
-//    Guest::registerNewMember();
 //    system->saveMember();
-    HomepageController homepage;
-
-    homepage.displayAppHomepage();
+    displayAppHomepage();
 }

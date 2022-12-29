@@ -11,6 +11,7 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::vector;
+
 #include <vector>
 
 #define CREDIT_POINT 500;
@@ -121,6 +122,11 @@ public:
     void setPtsPerDay(int pricePerDay);
     void setOccupierRating(double occupierRating);
     void setOwner(Member *owner);
+
+    bool approveRequest(Request *request);
+    bool rejectRequest(Request *request);
+
+    void viewAllRequests();
 };
 
 class System {

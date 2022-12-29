@@ -252,8 +252,6 @@ Member * System::registerMember(Member member) {
     setIsLoggedIn(true);
     string username, password, fullName, phone;
     sysLog("Sign up successfully! awarded with 500 points. \n\n");
-
-
     return newMem;
 }
 
@@ -321,6 +319,8 @@ bool System::saveMember() {
 
     return true;
 }
+
+// request.dat// user_id, house_id, owner_id, 1
 
 
 
